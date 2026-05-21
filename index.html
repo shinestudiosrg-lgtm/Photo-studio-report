@@ -307,6 +307,10 @@ select{
 
 }
 
+select[multiple]{
+  min-height:140px;
+}
+
 .input-wrap{
   position:relative;
 }
@@ -661,9 +665,7 @@ onclick="toggleTheme()"
 
 <label>Nama Petugas</label>
 
-<select id="petugas">
-
-<option value="">Pilih Petugas</option>
+<select id="petugas" multiple>
 
 <option value="Wahdah">Wahdah</option>
 <option value="Ikoh">Ikoh</option>
@@ -996,8 +998,13 @@ function generateReport(){
   const shift =
   document.getElementById('shiftType').value || '-';
 
+  const petugasSelected =
+  [...document.getElementById('petugas').selectedOptions];
+
   const petugas =
-  document.getElementById('petugas').value || '-';
+  petugasSelected.length
+  ? petugasSelected.map(x => x.value).join(', ')
+  : '-';
 
   const cash =
   +document.getElementById('cash').value || 0;
