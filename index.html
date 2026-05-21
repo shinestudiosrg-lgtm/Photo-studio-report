@@ -2,22 +2,52 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>Shine Photo Studio Report</title>
 
 <style>
+
 :root{
+
   --bg1:#0f172a;
   --bg2:#1e293b;
+
   --card:rgba(255,255,255,.12);
   --border:rgba(255,255,255,.15);
+
   --text:#f8fafc;
   --muted:#cbd5e1;
+
+  --input:#ffffff;
+  --inputText:#0f172a;
+
   --pink:#ff4ecd;
   --blue:#3b82f6;
   --yellow:#facc15;
+
   --shadow:0 20px 50px rgba(0,0,0,.35);
+
+  --report:#020617;
+}
+
+body.light{
+
+  --bg1:#f1f5f9;
+  --bg2:#e2e8f0;
+
+  --card:rgba(255,255,255,.85);
+  --border:rgba(0,0,0,.08);
+
+  --text:#0f172a;
+  --muted:#475569;
+
+  --input:#ffffff;
+  --inputText:#0f172a;
+
+  --shadow:0 10px 30px rgba(0,0,0,.08);
+
+  --report:#ffffff;
 }
 
 *{
@@ -25,23 +55,28 @@
 }
 
 body{
+
   margin:0;
   min-height:100vh;
+
   font-family:Inter,Segoe UI,sans-serif;
   color:var(--text);
 
   background:
-  radial-gradient(circle at top left, rgba(255,78,205,.35), transparent 28%),
-  radial-gradient(circle at top right, rgba(59,130,246,.35), transparent 30%),
-  radial-gradient(circle at bottom center, rgba(250,204,21,.18), transparent 28%),
+  radial-gradient(circle at top left, rgba(255,78,205,.18), transparent 28%),
+  radial-gradient(circle at top right, rgba(59,130,246,.18), transparent 30%),
+  radial-gradient(circle at bottom center, rgba(250,204,21,.15), transparent 28%),
   linear-gradient(135deg,var(--bg1),var(--bg2));
 
   padding:24px;
+
+  transition:.3s;
 }
 
 .wrap{
+
   width:100%;
-  max-width:1200px;
+  max-width:1250px;
   margin:auto;
 
   display:grid;
@@ -50,10 +85,15 @@ body{
 }
 
 .panel{
+
   background:var(--card);
+
   border:1px solid var(--border);
+
   backdrop-filter:blur(16px);
-  border-radius:24px;
+
+  border-radius:28px;
+
   box-shadow:var(--shadow);
 }
 
@@ -62,29 +102,37 @@ body{
 }
 
 .right{
+
   padding:22px;
+
   position:sticky;
   top:20px;
+
   height:fit-content;
 }
 
-.brand{
+.top{
+
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:14px;
+  gap:16px;
+
   margin-bottom:22px;
 }
 
-.brand-left{
+.brand{
+
   display:flex;
   align-items:center;
   gap:14px;
 }
 
 .logo{
-  width:58px;
-  height:58px;
+
+  width:60px;
+  height:60px;
+
   border-radius:18px;
 
   display:grid;
@@ -92,7 +140,13 @@ body{
 
   font-size:28px;
 
-  background:linear-gradient(135deg,var(--pink),var(--blue),var(--yellow));
+  background:
+  linear-gradient(
+  135deg,
+  var(--pink),
+  var(--blue),
+  var(--yellow)
+  );
 }
 
 h1{
@@ -106,46 +160,87 @@ h1{
   font-size:14px;
 }
 
+.top-right{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
 .date{
-  background:rgba(255,255,255,.1);
-  border:1px solid rgba(255,255,255,.12);
+
+  background:rgba(255,255,255,.08);
+
+  border:1px solid var(--border);
+
   padding:12px 14px;
+
   border-radius:16px;
+
   font-size:13px;
 }
 
+.theme-btn{
+
+  border:none;
+
+  padding:12px 14px;
+
+  border-radius:14px;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  background:
+  linear-gradient(135deg,var(--blue),#7ab1ff);
+
+  color:white;
+}
+
 .stats{
+
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:14px;
-  margin-bottom:20px;
+
+  margin-bottom:22px;
 }
 
 .stat{
+
   background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.1);
+
+  border:1px solid var(--border);
+
   border-radius:18px;
+
   padding:16px;
 }
 
 .stat .label{
+
   font-size:12px;
   color:var(--muted);
+
   margin-bottom:8px;
 }
 
 .stat .value{
+
   font-size:18px;
-  font-weight:700;
+  font-weight:800;
 }
 
 .grid{
+
   display:grid;
   grid-template-columns:repeat(2,1fr);
+
   gap:16px;
 }
 
 .field{
+
   display:flex;
   flex-direction:column;
   gap:8px;
@@ -156,8 +251,32 @@ h1{
 }
 
 label{
+
   font-size:13px;
-  font-weight:600;
+  font-weight:700;
+}
+
+input,
+select{
+
+  width:100%;
+
+  border:none;
+  outline:none;
+
+  padding:14px 16px;
+
+  border-radius:16px;
+
+  background:var(--input);
+
+  color:var(--inputText);
+
+  font-size:14px;
+}
+
+select[multiple]{
+  min-height:150px;
 }
 
 .input-wrap{
@@ -165,50 +284,43 @@ label{
 }
 
 .prefix{
+
   position:absolute;
+
   left:14px;
   top:50%;
+
   transform:translateY(-50%);
+
   color:#64748b;
-  font-size:13px;
 }
 
-input,
-select{
-  width:100%;
-  border:none;
-  outline:none;
-
-  padding:14px 16px;
-  border-radius:16px;
-
-  font-size:14px;
-
-  background:rgba(255,255,255,.95);
-  color:#0f172a;
-}
-
-input.money{
+.money{
   padding-left:42px;
 }
 
-select[multiple]{
-  min-height:140px;
-}
+.actions{
 
-.action{
   display:grid;
   grid-template-columns:repeat(3,1fr);
+
   gap:12px;
-  margin-top:20px;
+
+  margin-top:22px;
 }
 
 button{
+
   border:none;
-  padding:14px;
+
   border-radius:16px;
-  font-weight:700;
+
+  padding:14px;
+
+  font-weight:800;
+
   cursor:pointer;
+
   transition:.2s;
 }
 
@@ -217,24 +329,35 @@ button:hover{
 }
 
 .generate{
-  background:linear-gradient(135deg,var(--pink),#ff82db);
+
+  background:
+  linear-gradient(135deg,var(--pink),#ff82db);
+
   color:white;
 }
 
 .copy{
-  background:linear-gradient(135deg,var(--blue),#72a8ff);
+
+  background:
+  linear-gradient(135deg,var(--blue),#72a8ff);
+
   color:white;
 }
 
 .wa{
-  background:linear-gradient(135deg,var(--yellow),#fde68a);
+
+  background:
+  linear-gradient(135deg,var(--yellow),#fde68a);
+
   color:#111827;
 }
 
 .preview-top{
+
   display:flex;
   justify-content:space-between;
   align-items:center;
+
   margin-bottom:14px;
 }
 
@@ -243,100 +366,129 @@ button:hover{
 }
 
 .pill{
-  padding:8px 12px;
-  border-radius:999px;
-  font-size:12px;
-  font-weight:700;
 
   background:rgba(74,222,128,.14);
+
   color:#86efac;
+
+  padding:8px 12px;
+
+  border-radius:999px;
+
+  font-size:12px;
+  font-weight:800;
 }
 
 .report{
-  background:linear-gradient(180deg,#020617,#0f172a);
-  border:1px solid rgba(255,255,255,.08);
 
-  border-radius:22px;
+  background:var(--report);
+
+  border:1px solid var(--border);
+
+  border-radius:24px;
+
   padding:18px;
 
-  min-height:430px;
+  min-height:460px;
 
   display:flex;
   flex-direction:column;
   gap:14px;
 }
 
-.report-header{
+.report-head{
+
   display:flex;
   justify-content:space-between;
   align-items:center;
 
-  border-bottom:1px solid rgba(255,255,255,.08);
+  border-bottom:1px solid var(--border);
+
   padding-bottom:12px;
 }
 
 .report-title{
+
   font-size:18px;
   font-weight:800;
 }
 
 .report-sub{
+
   font-size:12px;
-  color:#94a3b8;
+  color:var(--muted);
 }
 
 pre{
+
   margin:0;
+
   flex:1;
 
   white-space:pre-wrap;
   word-break:break-word;
 
   font-family:Consolas,monospace;
+
   font-size:13px;
   line-height:1.7;
 
-  color:#86efac;
+  color:#22c55e;
 }
 
 .footer-grid{
+
   display:grid;
   grid-template-columns:repeat(3,1fr);
+
   gap:12px;
 }
 
 .mini{
+
   background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.08);
+
+  border:1px solid var(--border);
 
   border-radius:18px;
+
   padding:14px;
 }
 
 .mini .small{
+
   font-size:12px;
-  color:#94a3b8;
+
+  color:var(--muted);
+
   margin-bottom:6px;
 }
 
 .mini .big{
+
   font-size:18px;
   font-weight:800;
 }
 
 .toast{
+
   position:fixed;
+
   left:50%;
   bottom:24px;
+
   transform:translateX(-50%);
 
   background:#0f172a;
-  border:1px solid rgba(255,255,255,.08);
+
+  color:white;
 
   padding:12px 16px;
+
   border-radius:14px;
 
   opacity:0;
+
   transition:.25s;
 }
 
@@ -363,12 +515,18 @@ pre{
 
   .stats,
   .grid,
-  .action,
+  .actions,
   .footer-grid{
     grid-template-columns:1fr;
   }
 
+  .top{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
 }
+
 </style>
 </head>
 
@@ -376,200 +534,296 @@ pre{
 
 <div class="wrap">
 
-  <section class="panel left">
+<section class="panel left">
 
-    <div class="brand">
+<div class="top">
 
-      <div class="brand-left">
-        <div class="logo">✨</div>
+<div class="brand">
 
-        <div>
-          <h1>Shine Photo Studio</h1>
-          <div class="sub">
-            Premium sistem report harian studio
-          </div>
-        </div>
-      </div>
+<div class="logo">✨</div>
 
-      <div class="date" id="liveDate"></div>
+<div>
+<h1>Shine Photo Studio</h1>
 
-    </div>
+<div class="sub">
+Premium Report System
+</div>
+</div>
 
-    <div class="stats">
+</div>
 
-      <div class="stat">
-        <div class="label">Cash</div>
-        <div class="value" id="statCash">Rp 0</div>
-      </div>
+<div class="top-right">
 
-      <div class="stat">
-        <div class="label">QRIS</div>
-        <div class="value" id="statQris">Rp 0</div>
-      </div>
+<div class="date" id="liveDate"></div>
 
-      <div class="stat">
-        <div class="label">Total</div>
-        <div class="value" id="statTotal">Rp 0</div>
-      </div>
+<button class="theme-btn" onclick="toggleTheme()">
+🌙 Light / Dark
+</button>
 
-      <div class="stat">
-        <div class="label">Session</div>
-        <div class="value" id="statSession">0</div>
-      </div>
+</div>
 
-    </div>
+</div>
 
-    <div class="grid">
+<div class="stats">
 
-      <div class="field">
-        <label>Petugas</label>
+<div class="stat">
+<div class="label">Cash</div>
+<div class="value" id="statCash">Rp 0</div>
+</div>
 
-        <select id="nama" multiple>
-          <option value="Wahdah">Wahdah</option>
-          <option value="Ikoh">Ikoh</option>
-          <option value="Nazwa">Nazwa</option>
-          <option value="Asya">Asya</option>
-          <option value="Anisa">Anisa</option>
-        </select>
-      </div>
+<div class="stat">
+<div class="label">QRIS</div>
+<div class="value" id="statQris">Rp 0</div>
+</div>
 
-      <div class="field">
-        <label>Shift</label>
+<div class="stat">
+<div class="label">Total</div>
+<div class="value" id="statTotal">Rp 0</div>
+</div>
 
-        <select id="shift">
-          <option value="">Pilih Shift</option>
-          <option value="Pagi">Pagi</option>
-          <option value="Siang">Siang</option>
-          <option value="Malam">Malam</option>
-        </select>
-      </div>
+<div class="stat">
+<div class="label">Session</div>
+<div class="value" id="statSession">0</div>
+</div>
 
-      <div class="field">
-        <label>Cash</label>
+</div>
 
-        <div class="input-wrap">
-          <span class="prefix">Rp</span>
+<div class="grid">
 
-          <input class="money" type="number" id="cash">
-        </div>
-      </div>
+<div class="field">
 
-      <div class="field">
-        <label>QRIS</label>
+<label>Petugas Shift Siang</label>
 
-        <div class="input-wrap">
-          <span class="prefix">Rp</span>
+<select id="shiftSiang" multiple>
 
-          <input class="money" type="number" id="qris">
-        </div>
-      </div>
+<option value="Wahdah">Wahdah</option>
+<option value="Ikoh">Ikoh</option>
+<option value="Nazwa">Nazwa</option>
+<option value="Asya">Asya</option>
+<option value="Anisa">Anisa</option>
 
-      <div class="field">
-        <label>Photo Box</label>
+</select>
 
-        <input type="number" id="photobox">
-      </div>
+</div>
 
-      <div class="field">
-        <label>Photo Studio</label>
+<div class="field">
 
-        <input type="number" id="studio">
-      </div>
+<label>Petugas Shift Malam</label>
 
-      <div class="field">
-        <label>Kertas Terpakai</label>
+<select id="shiftMalam" multiple>
 
-        <input type="number" id="kertas">
-      </div>
+<option value="Wahdah">Wahdah</option>
+<option value="Ikoh">Ikoh</option>
+<option value="Nazwa">Nazwa</option>
+<option value="Asya">Asya</option>
+<option value="Anisa">Anisa</option>
 
-      <div class="field">
-        <label>Sisa Kertas</label>
+</select>
 
-        <input type="number" id="sisa">
-      </div>
+</div>
 
-      <div class="field full">
-        <label>Catatan</label>
+<div class="field">
 
-        <input type="text" id="catatan">
-      </div>
+<label>Cash</label>
 
-    </div>
+<div class="input-wrap">
 
-    <div class="action">
+<span class="prefix">Rp</span>
 
-      <button class="generate" onclick="generateReport()">
-        Generate
-      </button>
+<input
+type="number"
+id="cash"
+class="money"
+/>
 
-      <button class="copy" onclick="copyText()">
-        Copy
-      </button>
+</div>
 
-      <button class="wa" onclick="sendWA()">
-        WhatsApp
-      </button>
+</div>
 
-    </div>
+<div class="field">
 
-  </section>
+<label>QRIS</label>
 
-  <aside class="panel right">
+<div class="input-wrap">
 
-    <div class="preview-top">
-      <h2>Preview Report</h2>
+<span class="prefix">Rp</span>
 
-      <div class="pill">
-        Siap Kirim
-      </div>
-    </div>
+<input
+type="number"
+id="qris"
+class="money"
+/>
 
-    <div class="report">
+</div>
 
-      <div class="report-header">
+</div>
 
-        <div>
-          <div class="report-title">
-            Laporan Harian
-          </div>
+<div class="field">
 
-          <div class="report-sub">
-            Shine Photo Studio
-          </div>
-        </div>
+<label>Photo Box</label>
 
-        <div style="font-size:24px">
-          📋
-        </div>
+<input
+type="number"
+id="photobox"
+/>
 
-      </div>
+</div>
+
+<div class="field">
+
+<label>Photo Studio</label>
+
+<input
+type="number"
+id="studio"
+/>
+
+</div>
+
+<div class="field">
+
+<label>Kertas Terpakai</label>
+
+<input
+type="number"
+id="kertas"
+/>
+
+</div>
+
+<div class="field">
+
+<label>Sisa Kertas</label>
+
+<input
+type="number"
+id="sisa"
+/>
+
+</div>
+
+<div class="field full">
+
+<label>Catatan</label>
+
+<input
+type="text"
+id="catatan"
+placeholder="Opsional..."
+/>
+
+</div>
+
+</div>
+
+<div class="actions">
+
+<button
+class="generate"
+onclick="generateReport()"
+>
+Generate
+</button>
+
+<button
+class="copy"
+onclick="copyText()"
+>
+Copy
+</button>
+
+<button
+class="wa"
+onclick="sendWA()"
+>
+WhatsApp
+</button>
+
+</div>
+
+</section>
+
+<aside class="panel right">
+
+<div class="preview-top">
+
+<h2>Preview Report</h2>
+
+<div class="pill">
+Siap Kirim
+</div>
+
+</div>
+
+<div class="report">
+
+<div class="report-head">
+
+<div>
+
+<div class="report-title">
+Laporan Harian
+</div>
+
+<div class="report-sub">
+Shine Photo Studio
+</div>
+
+</div>
+
+<div style="font-size:24px">
+📋
+</div>
+
+</div>
 
 <pre id="output">✨ SHINE PHOTO STUDIO - REPORT HARIAN
 
 Isi data lalu klik Generate.</pre>
 
-      <div class="footer-grid">
+<div class="footer-grid">
 
-        <div class="mini">
-          <div class="small">Total Pendapatan</div>
-          <div class="big" id="totalMini">Rp 0</div>
-        </div>
+<div class="mini">
 
-        <div class="mini">
-          <div class="small">Status Kertas</div>
-          <div class="big" id="paperMini">0</div>
-        </div>
+<div class="small">
+Total Pendapatan
+</div>
 
-        <div class="mini">
-          <div class="small">Total Session</div>
-          <div class="big" id="sessionMini">0</div>
-        </div>
+<div class="big" id="miniTotal">
+Rp 0
+</div>
 
-      </div>
+</div>
 
-    </div>
+<div class="mini">
 
-  </aside>
+<div class="small">
+Kertas
+</div>
+
+<div class="big" id="miniPaper">
+0 / 0
+</div>
+
+</div>
+
+<div class="mini">
+
+<div class="small">
+Session
+</div>
+
+<div class="big" id="miniSession">
+0
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</aside>
 
 </div>
 
@@ -578,21 +832,10 @@ Isi data lalu klik Generate.</pre>
 <script>
 
 function rupiah(n){
-  return 'Rp ' + Number(n || 0).toLocaleString('id-ID');
-}
 
-function showToast(msg){
-
-  const toast = document.getElementById('toast');
-
-  toast.textContent = msg;
-  toast.classList.add('show');
-
-  clearTimeout(window.toastTimer);
-
-  window.toastTimer = setTimeout(() => {
-    toast.classList.remove('show');
-  }, 2200);
+  return 'Rp ' +
+  Number(n || 0)
+  .toLocaleString('id-ID');
 
 }
 
@@ -600,64 +843,51 @@ function updateDate(){
 
   const now = new Date();
 
-  const tanggal = now.toLocaleDateString('id-ID',{
+  const tanggal =
+  now.toLocaleDateString(
+  'id-ID',
+  {
     weekday:'long',
     day:'numeric',
     month:'long',
     year:'numeric'
   });
 
-  const jam = now.toLocaleTimeString('id-ID',{
+  const jam =
+  now.toLocaleTimeString(
+  'id-ID',
+  {
     hour:'2-digit',
     minute:'2-digit'
   });
 
-  document.getElementById('liveDate').innerHTML =
+  document.getElementById('liveDate')
+  .innerHTML =
   `${tanggal}<br>${jam} WIB`;
 
 }
 
-function updateStats(){
+function showToast(msg){
 
-  const cash = +document.getElementById('cash').value || 0;
-  const qris = +document.getElementById('qris').value || 0;
+  const toast =
+  document.getElementById('toast');
 
-  const photobox = +document.getElementById('photobox').value || 0;
-  const studio = +document.getElementById('studio').value || 0;
+  toast.textContent = msg;
 
-  const total = cash + qris;
-  const session = photobox + studio;
+  toast.classList.add('show');
 
-  const kertas = document.getElementById('kertas').value || 0;
-  const sisa = document.getElementById('sisa').value || 0;
+  clearTimeout(window.toastTimer);
 
-  document.getElementById('statCash').textContent = rupiah(cash);
-  document.getElementById('statQris').textContent = rupiah(qris);
-  document.getElementById('statTotal').textContent = rupiah(total);
+  window.toastTimer =
+  setTimeout(() => {
 
-  document.getElementById('statSession').textContent = session;
+    toast.classList.remove('show');
 
-  document.getElementById('totalMini').textContent = rupiah(total);
-
-  document.getElementById('paperMini').textContent =
-  `${kertas} / ${sisa}`;
-
-  document.getElementById('sessionMini').textContent =
-  session + ' Session';
+  },2200);
 
 }
 
-function generateReport(){
-
-  const selected =
-  [...document.getElementById('nama').selectedOptions];
-
-  const nama = selected.length
-  ? selected.map(x => x.value).join(', ')
-  : '-';
-
-  const shift =
-  document.getElementById('shift').value || '-';
+function updateStats(){
 
   const cash =
   +document.getElementById('cash').value || 0;
@@ -671,7 +901,68 @@ function generateReport(){
   const studio =
   +document.getElementById('studio').value || 0;
 
-  const totalSession = photobox + studio;
+  const total = cash + qris;
+
+  const session =
+  photobox + studio;
+
+  const kertas =
+  document.getElementById('kertas').value || 0;
+
+  const sisa =
+  document.getElementById('sisa').value || 0;
+
+  document.getElementById('statCash')
+  .textContent = rupiah(cash);
+
+  document.getElementById('statQris')
+  .textContent = rupiah(qris);
+
+  document.getElementById('statTotal')
+  .textContent = rupiah(total);
+
+  document.getElementById('statSession')
+  .textContent = session;
+
+  document.getElementById('miniTotal')
+  .textContent = rupiah(total);
+
+  document.getElementById('miniPaper')
+  .textContent =
+  `${kertas} / ${sisa}`;
+
+  document.getElementById('miniSession')
+  .textContent =
+  session + ' Session';
+
+}
+
+function generateReport(){
+
+  const siang =
+  [...document.getElementById('shiftSiang').selectedOptions]
+  .map(x => x.value)
+  .join(', ') || '-';
+
+  const malam =
+  [...document.getElementById('shiftMalam').selectedOptions]
+  .map(x => x.value)
+  .join(', ') || '-';
+
+  const cash =
+  +document.getElementById('cash').value || 0;
+
+  const qris =
+  +document.getElementById('qris').value || 0;
+
+  const photobox =
+  +document.getElementById('photobox').value || 0;
+
+  const studio =
+  +document.getElementById('studio').value || 0;
+
+  const session =
+  photobox + studio;
 
   const kertas =
   document.getElementById('kertas').value || 0;
@@ -682,9 +973,14 @@ function generateReport(){
   const catatan =
   document.getElementById('catatan').value || '-';
 
-  const total = cash + qris;
+  const total =
+  cash + qris;
 
-  const tanggal = new Date().toLocaleDateString('id-ID',{
+  const tanggal =
+  new Date()
+  .toLocaleDateString(
+  'id-ID',
+  {
     day:'numeric',
     month:'long',
     year:'numeric'
@@ -694,15 +990,16 @@ function generateReport(){
 `✨ SHINE PHOTO STUDIO - REPORT HARIAN
 
 Tanggal : ${tanggal}
-Petugas : ${nama}
-Shift   : ${shift}
+
+Shift Siang : ${siang}
+Shift Malam : ${malam}
 
 Cash    : ${rupiah(cash)}
 QRIS    : ${rupiah(qris)}
 
 Photo Box       : ${photobox}
 Photo Studio    : ${studio}
-Total Session   : ${totalSession}
+Total Session   : ${session}
 
 Kertas terpakai : ${kertas}
 Sisa kertas     : ${sisa}
@@ -713,8 +1010,8 @@ Catatan : ${catatan}
 
 Terima kasih 🙏`;
 
-  document.getElementById('output').textContent =
-  report;
+  document.getElementById('output')
+  .textContent = report;
 
   updateStats();
 
@@ -725,9 +1022,11 @@ Terima kasih 🙏`;
 async function copyText(){
 
   const text =
-  document.getElementById('output').textContent;
+  document.getElementById('output')
+  .textContent;
 
-  await navigator.clipboard.writeText(text);
+  await navigator.clipboard
+  .writeText(text);
 
   showToast('Report berhasil dicopy');
 
@@ -736,12 +1035,19 @@ async function copyText(){
 function sendWA(){
 
   const text =
-  document.getElementById('output').textContent;
+  document.getElementById('output')
+  .textContent;
 
   const url =
   `https://wa.me/?text=${encodeURIComponent(text)}`;
 
   window.open(url,'_blank');
+
+}
+
+function toggleTheme(){
+
+  document.body.classList.toggle('light');
 
 }
 
@@ -754,7 +1060,8 @@ function sendWA(){
 'sisa'
 ].forEach(id => {
 
-  document.getElementById(id)
+  document
+  .getElementById(id)
   .addEventListener('input', updateStats);
 
 });
