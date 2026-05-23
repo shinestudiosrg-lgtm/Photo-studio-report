@@ -25,7 +25,6 @@
   --pink:#ff4ecd;
   --blue:#3b82f6;
   --yellow:#facc15;
-  --green:#22c55e;
 
   --shadow:0 20px 50px rgba(0,0,0,.35);
 
@@ -71,11 +70,7 @@ body{
 
   padding:20px;
 
-  transition:.3s;
-
 }
-
-/* BACKGROUND ANIMATION */
 
 .bg{
 
@@ -237,26 +232,6 @@ body{
   var(--yellow)
   );
 
-  animation:spinGlow 6s linear infinite;
-
-}
-
-@keyframes spinGlow{
-
-  0%{
-    transform:rotate(0deg);
-    box-shadow:0 0 20px rgba(255,78,205,.5);
-  }
-
-  50%{
-    box-shadow:0 0 40px rgba(59,130,246,.6);
-  }
-
-  100%{
-    transform:rotate(360deg);
-    box-shadow:0 0 20px rgba(255,78,205,.5);
-  }
-
 }
 
 h1{
@@ -336,20 +311,6 @@ h1{
   border-radius:18px;
 
   padding:16px;
-
-  animation:pulse 4s infinite;
-
-}
-
-@keyframes pulse{
-
-  0%,100%{
-    transform:scale(1);
-  }
-
-  50%{
-    transform:scale(1.03);
-  }
 
 }
 
@@ -466,12 +427,6 @@ select{
 
   cursor:pointer;
 
-  transition:.2s;
-
-}
-
-.check-item:hover{
-  transform:translateY(-2px);
 }
 
 .check-item input{
@@ -506,12 +461,6 @@ button{
 
   cursor:pointer;
 
-  transition:.2s;
-
-}
-
-button:hover{
-  transform:translateY(-3px);
 }
 
 .generate{
@@ -567,20 +516,6 @@ button:hover{
 
   font-size:12px;
   font-weight:800;
-
-  animation:blink 2s infinite;
-
-}
-
-@keyframes blink{
-
-  0%,100%{
-    opacity:1;
-  }
-
-  50%{
-    opacity:.6;
-  }
 
 }
 
@@ -648,7 +583,7 @@ pre{
   margin-top:14px;
 
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(2,1fr);
 
   gap:12px;
 
@@ -898,7 +833,7 @@ onclick="toggleTheme()"
 
 <div class="field">
 
-<label>Photo Box</label>
+<label>Berapa Photo Box</label>
 
 <input type="number" id="photobox"/>
 
@@ -906,25 +841,9 @@ onclick="toggleTheme()"
 
 <div class="field">
 
-<label>Photo Studio</label>
+<label>Berapa Photo Studio</label>
 
 <input type="number" id="studio"/>
-
-</div>
-
-<div class="field">
-
-<label>Kertas Terpakai</label>
-
-<input type="number" id="kertas"/>
-
-</div>
-
-<div class="field">
-
-<label>Sisa Kertas</label>
-
-<input type="number" id="sisa"/>
 
 </div>
 
@@ -1017,18 +936,6 @@ Pendapatan
 
 <div class="big" id="miniTotal">
 Rp 0
-</div>
-
-</div>
-
-<div class="mini">
-
-<div class="small">
-Kertas
-</div>
-
-<div class="big" id="miniPaper">
-0 / 0
 </div>
 
 </div>
@@ -1133,12 +1040,6 @@ function updateStats(){
   const session =
   photobox + studio;
 
-  const kertas =
-  document.getElementById('kertas').value || 0;
-
-  const sisa =
-  document.getElementById('sisa').value || 0;
-
   document.getElementById('statCash')
   .textContent = rupiah(cash);
 
@@ -1153,10 +1054,6 @@ function updateStats(){
 
   document.getElementById('miniTotal')
   .textContent = rupiah(total);
-
-  document.getElementById('miniPaper')
-  .textContent =
-  `${kertas} / ${sisa}`;
 
   document.getElementById('miniSession')
   .textContent =
@@ -1192,12 +1089,6 @@ function generateReport(){
   const totalSession =
   photobox + studio;
 
-  const kertas =
-  document.getElementById('kertas').value || 0;
-
-  const sisa =
-  document.getElementById('sisa').value || 0;
-
   const catatan =
   document.getElementById('catatan').value || '-';
 
@@ -1224,12 +1115,9 @@ Shift   : ${shift}
 Cash    : ${rupiah(cash)}
 QRIS    : ${rupiah(qris)}
 
-Photo Box       : ${photobox}
-Photo Studio    : ${studio}
-Total Session   : ${totalSession}
-
-Kertas terpakai : ${kertas}
-Sisa kertas     : ${sisa}
+Berapa Photo Box    : ${photobox}
+Berapa Photo Studio : ${studio}
+Total Session       : ${totalSession}
 
 Total pendapatan : ${rupiah(total)}
 
@@ -1282,9 +1170,7 @@ function toggleTheme(){
 'cash',
 'qris',
 'photobox',
-'studio',
-'kertas',
-'sisa'
+'studio'
 ].forEach(id => {
 
   document
